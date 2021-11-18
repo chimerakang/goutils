@@ -1,2 +1,10 @@
 # go-utils
-Some awesome go utils
+Some awesome go utils / golang 工具包
+
+### Description 
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+| Name  |    Brief Description    | Remark |
+| :---: | :---------------------: | :----: |
+|  aes  | 主要是aes加解密 【CBC】 |        |

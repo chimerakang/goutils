@@ -1,5 +1,5 @@
 # go-utils
-Some awesome go utils / golang 工具包
+A group of generic useful utility functions
 
 ### Description 
 

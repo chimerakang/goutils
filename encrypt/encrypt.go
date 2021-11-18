@@ -7,6 +7,8 @@ import (
 	"encoding/pem"
 	"fmt"
 	"os"
+
+	"github.com/chimerakang/goutils/str"
 )
 
 // 密码相关工具
@@ -82,14 +84,14 @@ func RSAEncrypt(data, publicBytes []byte) ([]byte, error) {
 		return res, fmt.Errorf("无法加密, 公钥可能不正确, %v", err)
 	}
 	// 将数据加密为base64格式
-	return []byte(EncodeStr2Base64(string(res))), nil
+	return []byte(str.EncodeStr2Base64(string(res))), nil
 }
 
 // 对数据进行解密操作
 func RSADecrypt(base64Data, privateBytes []byte) ([]byte, error) {
 	var res []byte
 	// 将base64数据解析
-	data := []byte(DecodeStrFromBase64(string(base64Data)))
+	data := []byte(str.DecodeStrFromBase64(string(base64Data)))
 	// 解析私钥
 	block, _ := pem.Decode(privateBytes)
 	if block == nil {

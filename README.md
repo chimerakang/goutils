@@ -1,4 +1,4 @@
-# go-utils
+# goutils
 A group of generic useful utility functions
 
 ### Description 

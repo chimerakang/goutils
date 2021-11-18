@@ -3,6 +3,7 @@ module github.com/chimerakang/go-utils
 go 1.17
 
 require (
+	github.com/chimerakang/goutils v0.0.0-20211118073301-a8e6d02d4402
 	github.com/foobaz/lossypng v0.0.0-20200814224715-48fa8819852a
 	github.com/gin-gonic/gin v1.7.4
 	github.com/nfnt/resize v0.0.0-20180221191011-83c6a9932646

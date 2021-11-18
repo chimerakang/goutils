@@ -13,6 +13,7 @@ import (
 	"compress/zlib"
 	"io"
 
+	fileutil "github.com/chimerakang/goutils/file"
 	"github.com/foobaz/lossypng/lossypng"
 	"github.com/nfnt/resize"
 )
@@ -102,7 +103,7 @@ func CompressImageSaveOriginal(filename string, before string) error {
 	}
 	// 保存原始文件
 	if beforeDir != "" {
-		file.CreateDirIfNotExists(beforeDir)
+		fileutil.CreateDirIfNotExists(beforeDir)
 		// 移动源文件到before目录
 		err = os.Rename(filename, beforeFilename)
 		if err != nil {

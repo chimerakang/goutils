@@ -1,4 +1,4 @@
-package go-utils
+package goutils
 
 import (
 	"bytes"

@@ -2,6 +2,8 @@ package aes
 
 import (
 	"testing"
+
+	"github.com/chimerakang/goutils"
 )
 
 func TestAES(t *testing.T) {
@@ -26,7 +28,7 @@ func TestAES(t *testing.T) {
 	}
 
 	for k, v := range data {
-		if Empty(v.value) != v.result {
+		if goutils.Empty(v.value) != v.result {
 			t.Errorf("Empty test failed: %s expected %v,return %v != %v", k, v.result, Empty(v.value), v.result)
 		}
 	}

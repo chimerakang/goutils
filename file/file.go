@@ -157,7 +157,7 @@ func UnZip(src, dst string) ([]string, error) {
 	return files, nil
 }
 
-// 创建不存在的目录(给定文件名或文件夹名, 判断对应目录是否存在)
+// CreateDirIfNotExists --
 func CreateDirIfNotExists(name string) string {
 	info, err := os.Stat(name)
 	// 存在

@@ -5,9 +5,9 @@ import (
 	"io/ioutil"
 	"net/http"
 
+	"github.com/chimerakang/goutils/json"
 	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/log"
-	// "github.com/chimerakang/go-utils/json"
 )
 
 type IpResp struct {
@@ -37,7 +37,7 @@ func GetIpRealLocation(ip string) string {
 	}
 	// json数据转结构体
 	var result IpResp
-	Json2Struct(string(data), &result)
+	json.Json2Struct(string(data), &result)
 	if result.Status == "1" {
 		address = result.Province
 		if result.City != "" && result.Province != result.City {

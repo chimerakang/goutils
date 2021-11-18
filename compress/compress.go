@@ -9,6 +9,10 @@ import (
 	"path/filepath"
 	"strings"
 
+	"bytes"
+	"compress/zlib"
+	"io"
+
 	"github.com/foobaz/lossypng/lossypng"
 	"github.com/nfnt/resize"
 )
@@ -98,7 +102,7 @@ func CompressImageSaveOriginal(filename string, before string) error {
 	}
 	// 保存原始文件
 	if beforeDir != "" {
-		CreateDirIfNotExists(beforeDir)
+		file.CreateDirIfNotExists(beforeDir)
 		// 移动源文件到before目录
 		err = os.Rename(filename, beforeFilename)
 		if err != nil {
@@ -111,4 +115,20 @@ func CompressImageSaveOriginal(filename string, before string) error {
 		return fmt.Errorf("文件重命名失敗, err: %v", err)
 	}
 	return nil
+}
+
+func ZlibCompress(src []byte) []byte {
+	var in bytes.Buffer
+	w := zlib.NewWriter(&in)
+	w.Write(src)
+	w.Close()
+	return in.Bytes()
+}
+
+func ZlibUncompress(src []byte) []byte {
+	var out bytes.Buffer
+	b := bytes.NewReader(src)
+	r, _ := zlib.NewReader(b)
+	io.Copy(&out, r)
+	return out.Bytes()
 }

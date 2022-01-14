@@ -1,6 +1,9 @@
 package contains
 
-import "github.com/thoas/go-funk"
+import (
+	"os"
+	"github.com/thoas/go-funk"
+)
 
 // 判断数组arr是否包含item元素
 func Contains(arr interface{}, item interface{}) bool {

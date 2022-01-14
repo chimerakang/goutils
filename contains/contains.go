@@ -1,9 +1,6 @@
 package contains
 
-import (
-	"os"
-	"github.com/thoas/go-funk"
-)
+import "github.com/thoas/go-funk"
 
 // 判断数组arr是否包含item元素
 func Contains(arr interface{}, item interface{}) bool {
@@ -67,18 +64,4 @@ func ContainsUintIndex(arr []uint, item uint) int {
 		}
 	}
 	return -1
-}
-
-// IsRunningInDockerContainer -
-func IsRunningInDockerContainer() bool {
-    // docker creates a .dockerenv file at the root
-    // of the directory tree inside the container.
-    // if this file exists then the viewer is running
-    // from inside a container so return true
-        
-    if _, err := os.Stat("/.dockerenv"); err == nil {
-        return true
-    }
-        
-    return false
 }

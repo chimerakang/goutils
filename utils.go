@@ -5,6 +5,8 @@ import (
 	"encoding/json"
 	"errors"
 	"reflect"
+	"math/rand"
+	"time"
 )
 
 // Determine if the variable is null
@@ -79,4 +81,9 @@ func Then(v interface{}) *ifThen {
 
 func Else(v interface{}) *ifThen {
 	return new(ifThen).Else(v)
+}
+
+// GenerateNonce -
+func GenerateNonce() int {
+	return 100000 + rand.Intn(int(time.Now().UnixNano()%1000000))
 }

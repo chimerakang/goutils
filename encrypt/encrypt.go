@@ -5,6 +5,8 @@ import (
 	"crypto/rsa"
 	"crypto/x509"
 	"encoding/pem"
+	"math/rand"
+	"time"
 	"fmt"
 	"os"
 
@@ -107,4 +109,9 @@ func RSADecrypt(base64Data, privateBytes []byte) ([]byte, error) {
 		return res, fmt.Errorf("无法解密, 私钥可能不正确, %v", err)
 	}
 	return res, nil
+}
+
+
+func GenerateNonce() int {
+	return 100000 + rand.Intn(int(time.Now().UnixNano()%1000000))
 }

@@ -2,6 +2,7 @@ package encrypt
 
 import (
 	"fmt"
+	"strconv"
 	"testing"
 )
 
@@ -19,5 +20,8 @@ func TestRSA(t *testing.T) {
 	fmt.Println(string(encodeData2), err)
 	decodeData2, err := RSADecrypt(encodeData2, privateBytes)
 	fmt.Println(string(decodeData2), err)
+
+	nonce := GenerateNonce()
+	fmt.Println(strconv.Itoa(nonce))
 
 }
